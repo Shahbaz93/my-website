@@ -1,0 +1,769 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>KillDeal-E-commerce</title>
+	
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+        <style>
+
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+</style>
+  </head>
+
+	<asp:ContentPlaceHolder id="head" runat="server">
+	</asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+	<form id="form1" runat="server">
+        <asp:ScriptManager ID="scriptmangrt" runat="server"></asp:ScriptManager>
+       <asp:UpdateProgress id="updateProgress" runat="server">
+    <ProgressTemplate>
+        <div style="position: fixed; text-align: center; height: 100%; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.7;">
+            <asp:Image ID="imgUpdateProgress" runat="server" ImageUrl="~/img/LameDifferentBalloonfish-small.gif" AlternateText="Loading ..." ToolTip="Loading ..." style="padding: 10px;" />
+        </div>
+    </ProgressTemplate>
+</asp:UpdateProgress>
+	
+        <section class="desktop-header hidden-xs">
+  <div class="top-header" style="background-color:#e2d5d5">
+    <div class="container">
+      <div class="row" style="padding-top:1%">
+        <div class="col-sm-offset-6 col-sm-6 pull-right text-right">
+          <ul class="list-inline">
+            <li>
+              
+                <a class="track-order secondary-link  enduser-action-link" href="javascript:void(0);" data-toggle="modal" rel="tooltip" data-placement="bottom" data-target="#order-track-form" title="" data-original-title="Track Order">
+                  <i class="fa fa-truck"></i>
+                  <span class="hidden-xs">Track order</span>
+                </a>
+              
+            </li>
+            <li>
+              <a id="A1" href="tel:8448046047( Working Hours Timing 11 AM to 6 PM)-Monday Closed"><i class="fa fa-phone" aria-hidden="true"></i> 8448046047( Working Hours Timing 11 AM to 6 PM)-Monday Closed</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<%--        <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-6 col-sm-6 pull-right text-right">
+          <ul class="list-inline">
+            <li>
+              
+                <a class="track-order secondary-link  enduser-action-link" href="javascript:void(0);" data-toggle="modal" rel="tooltip" data-placement="bottom" data-target="#order-track-form" title="" data-original-title="Track Order">
+                  <i class="fa fa-truck"></i>
+                  <span class="hidden-xs">Track order</span>
+                </a>
+              
+            </li>
+            <li>
+              <a id="owner_contact" href="tel:8448046047( Working Hours Timing 11 AM to 6 PM)-Monday Closed"><i class="fa fa-phone" aria-hidden="true"></i> 8448046047( Working Hours Timing 11 AM to 6 PM)-Monday Closed</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>--%>
+<%--		 <div class="header-area">
+	  	
+                     
+                          
+<div class="col-sm-6" style="color:white;background-color:#FCBF49;padding-top:1%;text-align:center"><a href="#" style="color:white" ><h5><b>FREE STANDARD SHIPING </b></h5></a></div>
+<%--<div class="col-sm-4" style="color:white;background-color:#FCBF49;padding-top:1%;text-align:center"><a href="#" style="color:white"><h5><b></b></h5></a></div>--%>
+<%--<div class="col-sm-6" style="color:white;background-color:#FCBF49;padding-top:1%;text-align:center"><a href="#" style="color:white" ><h5><b>CASH ON DELIVERY</b></h5></a></div>--%>
+
+                      
+	<%--</div>--%> <!-- End header area -->
+	
+	<%--<div class="site-branding-area">
+		<div class="container">
+			
+		</div>
+	</div>--%> <!-- End site branding area -->
+		    
+	<div class="mainmenu-area" >
+		<div class="container" >
+           <div class="row" style="height:70%" >
+				<div class="col-sm-3">
+					<div class="logo">
+						<h1><a href="Home.aspx">
+                            <img src="img/KILLDEAL%20LOGO.jpg" alt="Example" width="60%" height="40%" /></a></h1>
+
+					</div>
+                       
+				</div>	
+               <div class="col-sm-6" style="padding-top:3%">
+               
+      <input type="text" style="width:80%" placeholder="Search is temporary not working...." name="search"/>
+                  
+           
+      <button type="submit"><i class="fa fa-search"></i></button>
+    
+  
+                   </div>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>  
+				<div class="col-sm-3">
+					<div class="shopping-item" style="height:70%">
+					<asp:LinkButton runat="server"  ID="btncart" OnClientClick="btncart_Click()">Cart - <span class="cart-amunt">&#8377;<asp:Label ID="cartamount1" runat="server"></asp:Label></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><asp:Label ID="count1" runat="server"></asp:Label></span></asp:LinkButton>
+					</div>
+
+                 
+				</div>
+
+                                    </ContentTemplate>
+                      </asp:UpdatePanel>	
+                  </div>
+                  	
+					</div>
+        
+      <%--  <div class="mainmenu-area" style="background-color:#EF798A">--%>
+ <div class="mainmenu-area" style="background-color:steelblue">
+     <div class="container">
+                	<div class="row" >
+				<div class="navbar-header pull-right">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> 
+				<div class="navbar-collapse collapse" style="background-color:steelblue">
+                    <div class="col-sm-6">
+					<ul class="nav navbar-nav">
+						<li><a href="Home.aspx" style="color:#C7D59F;font:bold;font-size:medium">Home</a></li>
+                        <li><a href="Cart.aspx" style="color:#C7D59F;font:bold;font-size:medium">Cart</a></li>
+						<li><a href="checkout.aspx" style="color:#C7D59F;font:bold;font-size:medium">Checkout</a></li>
+                        <li><a href="Track.aspx" style="color:#C7D59F;font:bold;font-size:medium">Track your order</a></li>
+					
+					</ul>
+                    </div> 
+                </div>
+                </div>
+				</div> 
+         
+			</div>
+           
+		</div>
+ 
+	 <!-- End mainmenu area -->
+       
+		<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+		
+		</asp:ContentPlaceHolder>
+         
+		 <div class="footer-top-area" >
+		<div class="zigzag-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-about-us">
+						<h2><span>KillDeal</span></h2>
+						<p style="color:white">KillDeal.in is a flagship E-Commerce Store that offers a wide range of electronics products that are found rare in the market or highly in demand. Supreme quality made products are ready to buy with secure online payment/COD and hassle-free delivery.</p>
+						<div class="footer-social">
+							<%--<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+							<a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+							<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>--%>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-menu">
+						<h2 class="footer-wid-title">User Navigation </h2>
+						<ul>
+							<li><a href="AdminDashbord.aspx">Admin</a></li>
+							<li><a href="#">Mobile accesseries</a></li>
+						</ul>                        
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-menu">
+						<h2 class="footer-wid-title">Categories</h2>
+						<ul>
+							<li> <a href="#" ><asp:LinkButton ID="btnprivasy" runat="server" OnClick="btnprivasy_Click"> Privacy Policy</asp:LinkButton></a></li>
+							<li> <a href="#"> <asp:LinkButton ID="btnReturn" runat="server" OnClick="btnReturn_Click"> Return Policy</asp:LinkButton></a></li>
+							<%--<li><a href="#">LED TV</a></li>
+							<li><a href="#">Computer</a></li>
+							<li><a href="#">Gadets</a></li>--%>
+						</ul>                        
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6">
+					<div class="footer-newsletter">
+						<h2 class="footer-wid-title">Newsletter</h2>
+						<p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+						<%--<div class="newsletter-form">
+							<form action="#">
+								<input type="email" placeholder="Type your email">
+								<input type="submit" value="Subscribe">
+							</form>
+						</div>--%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End footer top area -->
+	
+	<div class="footer-bottom-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+				<%--	<div class="copyright">
+						<p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+					</div>--%>
+				</div>
+				
+				<%--<div class="col-md-4">
+					<div class="footer-card-icon">
+						<i class="fa fa-cc-discover"></i>
+						<i class="fa fa-cc-mastercard"></i>
+						<i class="fa fa-cc-paypal"></i>
+						<i class="fa fa-cc-visa"></i>
+					</div>
+				</div>--%>
+			</div>
+		</div>
+	</div> <!-- End footer bottom area -->
+	
+        <asp:UpdatePanel ID="MODEL" runat="server">
+        <ContentTemplate>
+               <div class="modal fade" id="modalsuccess" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: steelblue; color: white">
+                    <h4 class="modal-title">
+                        <asp:Label Text="PRIVACY POLICY" runat="server"></asp:Label></h4>
+                </div>
+                <div class="modal-body">
+                    <pre>
+                        PRIVACY POLICY
+Thank you for choosing to be part of our community at KILLDEAL. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at info@killdeal.in
+When you visit our and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy policy, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our and our services.
+This privacy policy applies to all information collected through our and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Services").
+Please read this privacy policy carefully as it will help you make informed decisions about sharing your personal information with us.
+
+TABLE OF CONTENTS
+1. WHAT INFORMATION DO WE COLLECT?
+2. WILL YOUR INFORMATION BE SHARED WITH ANYONE?
+3. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
+4. HOW DO WE HANDLE YOUR SOCIAL LOGINS?
+5. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
+6. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?
+7. HOW LONG DO WE KEEP YOUR INFORMATION?
+8. DO WE COLLECT INFORMATION FROM MINORS?
+9. WHAT ARE YOUR PRIVACY RIGHTS?
+10. CONTROLS FOR DO-NOT-TRACK FEATURES
+11. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?
+12. DO WE MAKE UPDATES TO THIS POLICY?
+13. HOW CAN YOU CONTACT US ABOUT THIS POLICY?
+
+1. WHAT INFORMATION DO WE COLLECT?
+
+Personal information you disclose to us
+In Short:  We collect personal information that you provide to us such as name, address, contact information, passwords and security data, and payment information.
+We collect personal information that you voluntarily provide to us when registering at the expressing an interest in obtaining information about us or our products and services, when participating in activities on the (such as posting messages in our online forums or entering competitions, contests or giveaways) or otherwise contacting us.
+The personal information that we collect depends on the context of your interactions with us and the , the choices you make and the products and features you use. The personal information we collect can include the following: 
+Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
+Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "HOW DO WE HANDLE YOUR SOCIAL LOGINS" below.
+All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+
+Information automatically collected
+In Short:   Some information — such as IP address and/or browser and device characteristics — is collected automatically when you visit our .
+We automatically collect certain information when you visit, use or navigate the . This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our and other technical information. This information is primarily needed to maintain the security and operation of our , and for our internal analytics and reporting purposes.
+Like many businesses, we also collect information through cookies and similar technologies.
+
+2. WILL YOUR INFORMATION BE SHARED WITH ANYONE?
+In Short:  We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations.
+We may process or share data based on the following legal basis:
+	Consent: We may process your data if you have given us specific consent to use your personal information in a specific purpose.
+
+
+	Legitimate Interests: We may process your data when it is reasonably necessary to achieve our legitimate business interests.
+
+
+	Performance of a Contract: Where we have entered into a contract with you, we may process your personal information to fulfill the terms of our contract.
+
+
+	Legal Obligations: We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
+
+
+	Vital Interests: We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
+More specifically, we may need to process your data or share your personal information in the following situations:
+	Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the , which will enable them to collect data about how you interact with the over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+	Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+	Third-Party Advertisers. We may use third-party advertising companies to serve ads when you visit the . These companies may use information about your visits to our Website(s) and other websites that are contained in web cookies and other tracking technologies in order to provide advertisements about goods and services of interest to you.
+	Affiliates. We may share your information with our affiliates, in which case we will require those affiliates to honor this privacy policy. Affiliates include our parent company and any subsidiaries, joint venture partners or other companies that we control or that are under common control with us.
+	Business Partners. We may share your information with our business partners to offer you certain products, services or promotions.
+	Other Users. When you share personal information or otherwise interact with public areas of the , such personal information may be viewed by all users and may be publicly distributed outside the in perpetuity. If you interact with other users of our and register through a social network (such as Facebook), your contacts on the social network will see your name, profile photo, and descriptions of your activity. Similarly, other users will be able to view descriptions of your activity, communicate with you within our , and view your profile.
+
+3. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
+In Short:  We may use cookies and other tracking technologies to collect and store your information.
+We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Policy.
+
+4. HOW DO WE HANDLE YOUR SOCIAL LOGINS?
+In Short:  If you choose to register or log in to our services using a social media account, we may have access to certain information about you.
+Our offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
+We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the . Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
+
+5. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
+In Short:  We may transfer, store, and process your information in countries other than your own.
+Our servers are located in. If you are accessing our from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "WILL YOUR INFORMATION BE SHARED WITH ANYONE?" above), in and other countries.
+If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law. 
+
+6. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?
+In Short:  We are not responsible for the safety of any information that you share with third-party providers who advertise, but are not affiliated with, our websites.
+The may contain advertisements from third parties that are not affiliated with us and which may link to other websites, online services or mobile applications. We cannot guarantee the safety and privacy of data you provide to any third parties. Any data collected by third parties is not covered by this privacy policy. We are not responsible for the content or privacy and security practices and policies of any third parties, including other websites, services or applications that may be linked to or from the . You should review the policies of such third parties and contact them directly to respond to your questions.
+
+7. HOW LONG DO WE KEEP YOUR INFORMATION?
+In Short:  We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than 90 days of inactive/dormant account/login.
+When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+
+8. DO WE COLLECT INFORMATION FROM MINORS?
+In Short:  We do not knowingly collect data from or market to children under 18 years of age.
+We do not knowingly solicit data from or market to children under 18 years of age. By using the , you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the . If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at info@killdeal.in
+
+9. WHAT ARE YOUR PRIVACY RIGHTS?
+In Short:  You may review, change, or terminate your account at any time.
+If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.
+
+Account Information
+If you would at any time like to review or change the information in your account or terminate your account, you can:
+Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+Opting out of email marketing: You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+
+10. CONTROLS FOR DO-NOT-TRACK FEATURES
+Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy policy.
+
+11. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?
+In Short:  Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+California Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+If you are under 18 years of age, reside in California, and have a registered account with the , you have the right to request removal of unwanted data that you publicly post on the . To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the , but please be aware that the data may not be completely or comprehensively removed from our systems.
+
+12. DO WE MAKE UPDATES TO THIS POLICY?
+In Short:  Yes, we will update this policy as necessary to stay compliant with relevant laws.
+We may update this privacy policy from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+
+13. HOW CAN YOU CONTACT US ABOUT THIS POLICY?
+If you have questions or comments about this policy, you may email us at info@killdeal.in or by post to:
+9, India Exchange Place Rd,
+Kolkata – 700001. (Grd. Flr.)
+
+HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request form by clicking here. We will respond to your request within 30 days.
+
+                    </pre>
+                </div>
+                <div class="modal-footer">
+                  <%--  <asp:Button CssClass="btn btn-primary pull-left" ID="btncontinue" OnClick="btncontinue_Click" runat="server" Text="Continue" />--%>
+                    
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+  </ContentTemplate>
+    </asp:UpdatePanel>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+               <div class="modal fade" id="Return" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: steelblue; color: white">
+                    <h4 class="modal-title">
+                        <asp:Label ID="Label1" runat="server"></asp:Label></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="P1" runat="server"></p>
+                    <p id="P2" runat="server"></p>
+                </div>
+                <div class="modal-footer">
+                    <%--<asp:Button CssClass="btn btn-primary pull-left" ID="Button1" OnClick="btncontinue_Click" runat="server" Text="Continue" />--%>
+                    
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+  </ContentTemplate>
+    </asp:UpdatePanel>
+        
+          <div class="modal fade" id="cartmodel" role="dialog">
+              <asp:UpdatePanel ID="CartUpdatePanal" runat="server">
+        <ContentTemplate>
+        <div class="modal-dialog  modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: steelblue; color: white">
+                    
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                
+              
+                    <h4 class="modal-title">
+                        Shopping Cart</h4>
+                </div>
+                <div class="modal-body">
+                                         <div id="body" runat="server">
+                    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-content-right">
+                        <div class="woocommerce"> 
+                             <asp:UpdatePanel ID="updt1" runat="server">
+                                <ContentTemplate>     
+                                    <div class="row" style="overflow:auto">                        
+                          <asp:gridview  id="gvcart" runat="server" cssclass="shop_table cart" autogeneratecolumns="false" Width="75%">
+                                <Columns>                                     
+                                     <asp:TemplateField ItemStyle-Width="2%">
+                                         <HeaderTemplate>
+                                           #
+                                        </HeaderTemplate>
+                                    <ItemTemplate>
+                                      <asp:LinkButton ID="btnremove" runat="server" Text="Remove" OnClick="btnremove_Click" CommandArgument='<%# Eval("ITM_ID")%>'><i class="fa fa-bitbucket" style="color:red"></i></asp:LinkButton>  
+                                    </ItemTemplate>
+                                         </asp:TemplateField>
+                                    <asp:TemplateField ItemStyle-Width="8%">
+                                         <HeaderTemplate>
+                                           Image
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                    
+                                                <a href="#"><img width="90" height="90" alt="poster_1_up" class="shop_thumbnail" src='<%# Eval("ITM_IMAGE") %>'></a>
+                                         
+                                         </ItemTemplate>
+                                         </asp:TemplateField >
+                                     <asp:TemplateField ItemStyle-Width="5%">
+                                         <HeaderTemplate>
+                                           Product
+                                        </HeaderTemplate>
+                                    <ItemTemplate>
+                                    <asp:Label ID="lblName" runat="server" Text='<%# Eval("ITM_NAME") %>'  />
+                                        </ItemTemplate>
+                                         </asp:TemplateField>
+                                      <asp:TemplateField ItemStyle-Width="2%">
+                                         <HeaderTemplate>
+                                           Price
+                                        </HeaderTemplate>
+                                    <ItemTemplate>
+                                       <asp:Label ID="lblprice" runat="server" Text='<%# Eval("ITM_PRICE") %>'  />
+                                        </ItemTemplate>
+                                          </asp:TemplateField>
+                                    <asp:TemplateField ItemStyle-Width="2%"  >
+                                        <HeaderTemplate>
+                                            Quntity
+                                        </HeaderTemplate>                                                    
+                                             <ItemTemplate >                                            
+                                            <input type="button" id="btnplus" class="btn btn-primary"   value="+" onclick="return Calculate(this);"/>
+                                                
+                                             <asp:TextBox ID="txbQty" Enabled="false" Text='<%# Eval("Quantity") %>'  class="calculate" runat="server" CssClass="form-control " />  
+                                                                                          
+                                                  <input type="button"  id="btnminus" class="btn btn-danger"  value="-" onclick="return Calculate1(this);" />
+                                                </ItemTemplate>
+                                               
+                                             </asp:TemplateField>
+                                      <asp:TemplateField ItemStyle-Width="2%"  >
+                                           <HeaderTemplate>
+                                            Total
+                                        </HeaderTemplate>                                                    
+                                             <ItemTemplate >  
+                                                <asp:Label ID="labtotal" runat="server" Text='<%# Eval("ITM_TOTAL_PRICE") %>'></asp:Label>
+                                                 <asp:HiddenField ID="ID" runat="server" Value='<%# Eval("ITM_ID") %>'></asp:HiddenField>
+                                               </ItemTemplate>
+                                         </asp:TemplateField>                                                                                                               
+                                </Columns>
+                            </asp:gridview> 
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+
+                                        </div>
+                                       
+                                        <div class="col-lg-2">
+                                            <asp:Button ID="btncheckout" runat="server" Text="Checkout" CssClass="btn btn-success" OnClick="btncheckout_Click" />
+                                        </div>
+                                         <div class="col-lg-2"> 
+                                            <asp:Button ID="btnContinue" runat="server" Text="Continue shoping" CssClass="btn btn-success" OnClick="btnContinue_Click" />
+                                        </div>
+                                    </div>
+                                    </ContentTemplate>
+                                 </asp:UpdatePanel>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                     <h2> <input type="hidden" id="array_store" name = "ArrayStore" value = '<%=this.ArrayStore %>' /></h2>
+                         </div>
+       
+    <div id="body2" runat="server" visible="false" style="color:white;">
+         <h1><asp:Label CssClass="alert-warning" Text="First add the item into cart" ID="lbl" runat="server"></asp:Label></h1>
+         </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button CssClass="btn btn-primary pull-right" ID="btncancle" data-dismiss="modal" runat="server" Text="Cancel" />
+                    
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+            </ContentTemplate>
+    </asp:UpdatePanel>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	</form>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	
+	<!-- Bootstrap JS form CDN -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- jQuery sticky menu -->
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	
+	<!-- jQuery easing -->
+	<script src="js/jquery.easing.1.3.min.js"></script>
+	
+	<!-- Main Script -->
+	<script src="js/main.js"></script>
+	
+	<!-- Slider -->
+	<script type="text/javascript" src="js/bxslider.min.js"></script>
+	<script type="text/javascript" src="js/script.slider.js"></script>
+     
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        function showModalCart(message, header) {
+            $('#cartmodel').modal('show');
+        }
+</script>
+    <script>
+        function btncart_Click() {
+            debugger;
+            $('#cartmodel').modal('show');
+            
+            //alert('df');
+        }
+        function Calculate1(xyz) {
+
+            var rowIndex = xyz.parentNode.parentNode;
+
+            var message = "Row Index: " + (rowIndex.rowIndex - 1);
+
+            var disQtyTotal = 0;
+            $('[id*=gvcart] tr').each(function () {
+
+                var row = $(this);
+                if (rowIndex.rowIndex == row.index()) {
+                    var qty1 = $('[id*=txbQty]', row).html();
+                    var qty = $('[id*=txbQty]', row).val();
+                    var total = $('[id*=labtotal]', row).html();
+                    var unitprice = parseInt(total) / parseInt(qty)
+                    if (qty > 1) {
+                        var newqty = parseInt(qty) - 1;
+                        var newTotal = parseInt(unitprice) * parseInt(newqty);
+                        $('[id*=txbQty]', row).val(newqty);
+                        $('[id*=labtotal]', row).html(newTotal);
+                        debugger;
+                        var arr = [];
+                        var item = ['ID', 'NAME', 'PRICE', 'QTY', 'TOTAL'];
+                        arr.push(item);
+                        $('[id*=gvcart] tr').each(function () {
+                            var row = $(this);
+                            if (row.index() > 0) {
+                                item = [$('[id*=ID]', row).val(), $('[id*=lblName]', row).html(), $('[id*=lblprice]', row).html(),
+                                               $('[id*=txbQty]', row).val(), $('[id*=labtotal]', row).html()];
+
+
+                                arr.push(item);
+                            }
+
+
+
+                        })
+
+                        //  arr =  JSON.stringify(Object.assign({}, arr));
+                        var r = arrayToJSONObject(arr);
+                        array_store.value = r;
+                        __doPostBack('', '');
+                    }
+                }
+
+            })
+
+        }
+        function Calculate(xyz) {
+            var rowIndex = xyz.parentNode.parentNode;
+            debugger;
+            var message = "Row Index: " + (rowIndex.rowIndex - 1);
+            var disQtyTotal = 0;
+            $('[id*=gvcart] tr').each(function () {
+                var row = $(this);
+                if (rowIndex.rowIndex == row.index()) {
+                    debugger;
+                    var qty1 = $('[id*=txbQty]', row).html();
+                    var qty = $('[id*=txbQty]', row).val();
+                    var total = $('[id*=labtotal]', row).html();
+                    var unitprice = parseInt(total) / parseInt(qty)
+                    var newqty = parseInt(qty) + 1;
+                    var newTotal = parseInt(unitprice) * parseInt(newqty);
+                    $('[id*=txbQty]', row).val(newqty);
+                    $('[id*=labtotal]', row).html(newTotal);
+                    var arr = [];
+                    var item = ['ID', 'NAME', 'PRICE', 'QTY', 'TOTAL'];
+                    arr.push(item);
+                    $('[id*=gvcart] tr').each(function () {
+                        var row = $(this);
+                        if (row.index() > 0) {
+                            item = [$('[id*=ID]', row).val(), $('[id*=lblName]', row).html(), $('[id*=lblprice]', row).html(),
+                                          $('[id*=txbQty]', row).val(), $('[id*=labtotal]', row).html()];
+                            arr.push(item);
+                        }
+
+
+
+                    })
+
+                    // arr = JSON.stringify(Object.assign({}, arr));
+                    var r = arrayToJSONObject(arr);
+                    array_store.value = r;
+                    __doPostBack('', '');
+                }
+
+            })
+
+        }
+        function fatchGv() {
+            debugger;
+            var arr = [];
+            $('[id*=gvcart] tr').each(function () {
+                var row = $(this);
+                if (row.index() > 0) {
+                    var item = [$('[id*=ID]', row).val(), $('[id*=lblName]', row).html(), $('[id*=lblprice]', row).html(),
+                                   $('[id*=txbQty]', row).val(), $('[id*=labtotal]', row).html()];
+                    arr.push(item);
+                }
+
+
+
+            })
+
+            arr = JSON.stringify(arr);
+            array_store.value = arr;
+            __doPostBack('', '');
+            // window.location.href = 'checkout.aspx';
+        }
+        function arrayToJSONObject(arr) {
+            debugger;
+            var keys = arr[0];
+            var keys2 = arr[1];
+            var keys3 = arr[2];
+            //vacate keys from main array
+            var newArr = arr.slice(1, arr.length);
+
+            var formatted = [],
+            data = newArr,
+            cols = keys,
+            l = cols.length;
+            for (var i = 0; i < data.length; i++) {
+                var d = data[i],
+                        o = {};
+                for (var j = 0; j < l; j++)
+                    o[cols[j]] = d[j];
+                formatted.push(o);
+            }
+            var result = JSON.stringify(formatted);
+            return result;
+        }
+     
+        </script>
+	<asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+		
+		</asp:ContentPlaceHolder>
+</body>
+</html>
